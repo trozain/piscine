@@ -1,0 +1,57 @@
+#include <unistd.h>
+#include <stdio.h>
+
+void	ft_putchar(char c);
+
+void write_line(int x, char fcorner, char scorner, char other)
+{
+	int j;
+
+	j = 1;
+	if (x <= 0)
+	{
+		return;
+	}
+	
+	ft_putchar(fcorner);
+
+	while(j <= x-2)
+	{
+		ft_putchar(other);
+		j++;
+	}
+	if(x >= 2)
+	{
+		ft_putchar(scorner);
+		ft_putchar('\n');
+	}
+}
+
+void rush(int x, int y)
+{
+	int i;
+	char lettre[3];
+
+	i = 1;
+	while(i <= y)
+	{
+		lettre[0] = 'B';
+		lettre[1] = 'B';
+		lettre[2] = ' ';
+
+		if(i == 1)
+		{
+			lettre[0] = 'A';
+			lettre[1] = 'C';
+			lettre[2] = 'B';
+		}
+		else if(i == y)
+		{
+			lettre[0] = 'C';
+			lettre[1] = 'A';
+			lettre[2] = 'B';
+		}
+		write_line(x, lettre[0], lettre[1], lettre[2]);
+		i++;
+	} 	
+}
